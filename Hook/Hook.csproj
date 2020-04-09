@@ -7,8 +7,8 @@
     <ProjectGuid>{1AA91F5A-DDA2-4862-8EA2-686665597C5B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestAssembly</RootNamespace>
-    <AssemblyName>TestAssembly</AssemblyName>
+    <RootNamespace>Hook</RootNamespace>
+    <AssemblyName>Hook</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

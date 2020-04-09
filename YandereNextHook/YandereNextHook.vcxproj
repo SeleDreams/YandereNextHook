@@ -167,17 +167,23 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="include\detours.h" />
     <ClInclude Include="include\detver.h" />
-    <ClInclude Include="include\syelog.h" />
+    <ClInclude Include="MessageManager.h" />
     <ClInclude Include="Mono.h" />
     <ClInclude Include="MonoHooker.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MessageManager.cpp" />
     <ClCompile Include="Mono.cpp" />
     <ClCompile Include="MonoHooker.cpp" />
     <ClCompile Include="version.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="version.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hook\Hook.csproj">
+      <Project>{1aa91f5a-dda2-4862-8ea2-686665597c5b}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

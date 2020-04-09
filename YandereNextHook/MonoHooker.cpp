@@ -5,40 +5,25 @@
 #include <objidlbase.h>
 #include <string>
 #include "Mono.h"
+#include "MessageManager.h"
 
 using namespace std;
 
-
-
 FARPROC(_stdcall* MonoHooker::Original_GetProcAddress)(HMODULE, LPCSTR) = nullptr;
-
+const char* MonoHooker::HookLib;
 bool MonoHooker::m_hooked;
 Mono MonoHooker::Mono;
 
-
-void MonoHooker::DisplayError(const char* message) {
-	MessageBoxA(NULL, message, "ERROR", MB_ICONERROR);
-}
-
-void MonoHooker::DisplayMessage(const char* message) {
-	MessageBoxA(NULL, message, "Message", MB_ICONINFORMATION);
-}
-
-void MonoHooker::HookMonoMethodDesc() {
-	HMODULE monoModule = GetModuleHandleA("mono.dll");
-	PVOID functionAddress = GetProcAddress(monoModule, "mono_method_desc_new");
-	DetourTransactionBegin();
-	PVOID realTarget;
-	PVOID realDetour;
-	PDETOUR_TRAMPOLINE realTrampoline;
-	long result = DetourAttachEx(&functionAddress, custom_mono_method_desc_new, &realTrampoline, &realTarget, &realDetour);
-	DetourTransactionCommit();
-	Mono.method_desc_new = (void* (*)(const char*, bool))realTrampoline;
-}
-
 void MonoHooker::Hook() {
+	HookLib = "Hook";
+	HookGetProc();
+}
+
+PVOID functionAddress;
+
+void MonoHooker::HookGetProc() {
 	HMODULE kernelModule = GetModuleHandleA("Kernel32.dll");
-	PVOID functionAddress = GetProcAddress(kernelModule, "GetProcAddress");
+	 functionAddress = GetProcAddress(kernelModule, "GetProcAddress");
 	DetourTransactionBegin();
 	PVOID realTarget, realDetour;
 	PDETOUR_TRAMPOLINE realTrampoline;
@@ -47,24 +32,24 @@ void MonoHooker::Hook() {
 	Original_GetProcAddress = (FARPROC(_stdcall*)(HMODULE, LPCSTR))realTrampoline;
 }
 
-
-void* MonoHooker::custom_mono_method_desc_new(const char* method, bool useNamespace) {
+void MonoHooker::StartMod() {
+	DetourTransactionBegin();
+	DetourDetach(&functionAddress, HookedProcAdress);
+	DetourTransactionCommit();
 	char buffer[255];
 	GetCurrentDirectoryA(sizeof(buffer), buffer);
-	string realPath = string(buffer) + "\\" + "TestAssembly.dll";
+	string realPath = string(buffer) + "\\" + HookLib + ".dll";
 	void* monoAssembly = Mono.domain_assembly_open(Mono.MonoDomain, realPath.c_str());
 	if (monoAssembly != nullptr) {
 		void* monoImage = Mono.assembly_get_image(monoAssembly);
-		void* monoMethodDesc = Mono.method_desc_new("TestAssembly.EntryPoint:Hooked()", true);
+		void* monoMethodDesc = Mono.method_desc_new((string(HookLib) + ".EntryPoint:Hooked()").c_str(), true);
 		void* monoMethod = Mono.method_desc_search_in_image(monoMethodDesc, monoImage);
 		void* result = Mono.runtime_invoke(monoMethod, nullptr, nullptr, nullptr);
 	}
 	else {
-		DisplayError("Assembly Null !");
+		MessageManager::DisplayError((realPath + " Doesn't exist or was incorrectly loaded ! The game will start normally !").c_str());
 		ExitProcess(1);
 	}
-
-	return Mono.method_desc_new(method, useNamespace);
 }
 
 void* MonoHooker::custom_mono_jit_init_version(const char* AppName, const char* version) {
@@ -72,7 +57,7 @@ void* MonoHooker::custom_mono_jit_init_version(const char* AppName, const char* 
 	Mono.MonoDomain = Mono.jit_init_version(AppName, version);
 	const char* path = Mono.assembly_getrootdir();
 	Mono.thread_set_main(Mono.thread_current());
-	HookMonoMethodDesc();
+	StartMod();
 	return Mono.MonoDomain;
 }
 

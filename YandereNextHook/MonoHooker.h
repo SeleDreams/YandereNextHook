@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MONOHOOKER
+#define MONOHOOKER
 #include <Windows.h>
 #include "include/detours.h"
 #include "Mono.h"
@@ -7,11 +8,10 @@ class MonoHooker
 {
 public:
 	static void Hook();
-	static void DisplayMessage(const char* message);
-	static void DisplayError(const char* message);
+	
 
-
-	static void HookMonoMethodDesc();
+	static void StartMod();
+	static void HookGetProc();
 
 	static bool isHooked() { return m_hooked; }
 	static void SetHooked(bool hookStatus) { m_hooked = hookStatus; };
@@ -22,10 +22,12 @@ public:
 
 	// custom mono functions
 	static void* custom_mono_jit_init_version(const char* AppName, const char* version);
-	static void* custom_mono_method_desc_new(const char* method, bool useNamespace);
+
 	static FARPROC(_stdcall* Original_GetProcAddress)(HMODULE, LPCSTR);
 	static FARPROC _stdcall HookedProcAdress(HMODULE hModule, LPCSTR filename);
+	static const char* HookLib;
 	
+
 private:
 	// Fields
 	static bool m_hooked;
@@ -34,3 +36,4 @@ private:
 };
 
 
+#endif
