@@ -24,29 +24,129 @@ struct version_dll {
 	FARPROC OrignalVerQueryValueW;
 } version;
 
-__declspec(naked) void FakeGetFileVersionInfoA() { 
-	
-	_asm { jmp[version.OrignalGetFileVersionInfoA] } }
-__declspec(naked) void FakeGetFileVersionInfoByHandle() { _asm { jmp[version.OrignalGetFileVersionInfoByHandle] } }
-__declspec(naked) void FakeGetFileVersionInfoExA() { _asm { jmp[version.OrignalGetFileVersionInfoExA] } }
-__declspec(naked) void FakeGetFileVersionInfoExW() { _asm { jmp[version.OrignalGetFileVersionInfoExW] } }
-__declspec(naked) void FakeGetFileVersionInfoSizeA() { _asm { jmp[version.OrignalGetFileVersionInfoSizeA] } }
-__declspec(naked) void FakeGetFileVersionInfoSizeExA() { _asm { jmp[version.OrignalGetFileVersionInfoSizeExA] } }
-__declspec(naked) void FakeGetFileVersionInfoSizeExW() { _asm { jmp[version.OrignalGetFileVersionInfoSizeExW] } }
-__declspec(naked) void FakeGetFileVersionInfoSizeW() { _asm { jmp[version.OrignalGetFileVersionInfoSizeW] } }
-__declspec(naked) void FakeGetFileVersionInfoW() { _asm { jmp[version.OrignalGetFileVersionInfoW] } }
-__declspec(naked) void FakeVerFindFileA() { _asm { jmp[version.OrignalVerFindFileA] } }
-__declspec(naked) void FakeVerFindFileW() { _asm { jmp[version.OrignalVerFindFileW] } }
-__declspec(naked) void FakeVerInstallFileA() { _asm { jmp[version.OrignalVerInstallFileA] } }
-__declspec(naked) void FakeVerInstallFileW() { _asm { jmp[version.OrignalVerInstallFileW] } }
-__declspec(naked) void FakeVerLanguageNameA() { _asm { jmp[version.OrignalVerLanguageNameA] } }
-__declspec(naked) void FakeVerLanguageNameW() { _asm { jmp[version.OrignalVerLanguageNameW] } }
-__declspec(naked) void FakeVerQueryValueA() {
-	
-	_asm { jmp[version.OrignalVerQueryValueA]
-	}
+BOOL _stdcall FakeGetFileVersionInfoA(LPCSTR filename, DWORD dwhandle, DWORD dwlen, LPVOID lpdata) {
+
+	return ((BOOL(_stdcall*)(LPCSTR, DWORD, DWORD, LPVOID)) version.OrignalGetFileVersionInfoA)(filename, dwhandle, dwlen, lpdata);
 }
-__declspec(naked) void FakeVerQueryValueW() { _asm { jmp[version.OrignalVerQueryValueW] } }
+BOOL _stdcall FakeGetFileVersionInfoByHandle(HANDLE hFile, LPBY_HANDLE_FILE_INFORMATION lpFileInformation) {
+	return ((BOOL(_stdcall*)(HANDLE, LPBY_HANDLE_FILE_INFORMATION))version.OrignalGetFileVersionInfoByHandle)(hFile, lpFileInformation);
+}
+BOOL _stdcall FakeGetFileVersionInfoExA(DWORD dwFlags, LPCSTR filename, DWORD dwhandle, DWORD dwlen, LPVOID lpdata) {
+	return ((BOOL(_stdcall*)(DWORD, LPCSTR, DWORD, DWORD, LPVOID))version.OrignalGetFileVersionInfoExA)(dwFlags, filename, dwhandle, dwlen, lpdata);
+}
+BOOL _stdcall FakeGetFileVersionInfoExW(DWORD dwFlags, LPCWSTR filename, DWORD dwhandle, DWORD dwlen, LPVOID lpdata) {
+	return ((BOOL(_stdcall*)(DWORD, LPCWSTR, DWORD, DWORD, LPVOID))version.OrignalGetFileVersionInfoExW)(dwFlags, filename, dwhandle, dwlen, lpdata);
+}
+DWORD _stdcall FakeGetFileVersionInfoSizeA(LPCSTR  lptstrFilename, LPDWORD lpdwHandle) {
+	return ((DWORD(_stdcall*)(LPCSTR, LPDWORD))version.OrignalGetFileVersionInfoSizeA)(lptstrFilename, lpdwHandle);
+}
+
+DWORD _stdcall FakeGetFileVersionInfoSizeExA(DWORD dwFlags, LPCSTR  lptstrFilename, LPDWORD lpdwHandle)
+{
+	return ((DWORD(_stdcall*)(DWORD, LPCSTR, LPDWORD))version.OrignalGetFileVersionInfoSizeExA)(dwFlags, lptstrFilename, lpdwHandle);
+}
+
+
+DWORD _stdcall FakeGetFileVersionInfoSizeExW(DWORD dwFlags, LPCWSTR  lptstrFilename, LPDWORD lpdwHandle)
+{
+	return ((DWORD(_stdcall*)(DWORD, LPCWSTR, LPDWORD))version.OrignalGetFileVersionInfoSizeExW)(dwFlags, lptstrFilename, lpdwHandle);
+}
+
+
+DWORD _stdcall FakeGetFileVersionInfoSizeW(LPCWSTR  lptstrFilename, LPDWORD lpdwHandle) {
+	return ((DWORD(_stdcall*)(LPCWSTR, LPDWORD))version.OrignalGetFileVersionInfoW)(lptstrFilename, lpdwHandle);
+}
+
+BOOL _stdcall FakeGetFileVersionInfoW(LPCWSTR filename, DWORD dwhandle, DWORD dwlen, LPVOID lpdata) {
+	return ((BOOL(_stdcall*)(LPCWSTR, DWORD, DWORD, LPVOID)) version.OrignalGetFileVersionInfoW)(filename, dwhandle, dwlen, lpdata);
+}
+
+DWORD _stdcall FakeVerFindFileA(
+	DWORD  uFlags,
+	LPCSTR szFileName,
+	LPCSTR szWinDir,
+	LPCSTR szAppDir,
+	LPSTR  szCurDir,
+	PUINT  puCurDirLen,
+	LPSTR  szDestDir,
+	PUINT  puDestDirLen
+)
+{
+	return ((DWORD(_stdcall*)(DWORD, LPCSTR, LPCSTR, LPCSTR, LPSTR, PUINT, LPSTR, PUINT))version.OrignalVerFindFileA)(uFlags, szFileName, szWinDir, szAppDir, szCurDir, puCurDirLen, szDestDir, puDestDirLen);
+
+}
+
+DWORD _stdcall FakeVerFindFileW(
+	DWORD  uFlags,
+	LPCWSTR szFileName,
+	LPCWSTR szWinDir,
+	LPCWSTR szAppDir,
+	LPWSTR  szCurDir,
+	PUINT  puCurDirLen,
+	LPWSTR  szDestDir,
+	PUINT  puDestDirLen
+) {
+	return ((DWORD(_stdcall*)(DWORD, LPCWSTR, LPCWSTR, LPCWSTR, LPWSTR, PUINT, LPWSTR, PUINT))version.OrignalVerFindFileW)(uFlags, szFileName, szWinDir, szAppDir, szCurDir, puCurDirLen, szDestDir, puDestDirLen);
+}
+
+DWORD _stdcall FakeVerInstallFileA(
+	DWORD  uFlags,
+	LPCSTR szSrcFileName,
+	LPCSTR szDestFileName,
+	LPCSTR szSrcDir,
+	LPCSTR szDestDir,
+	LPCSTR szCurDir,
+	LPSTR  szTmpFile,
+	PUINT  puTmpFileLen
+) {
+	return ((DWORD(_stdcall*)(DWORD, LPCSTR, LPCSTR, LPCSTR, LPCSTR, LPCSTR, LPSTR, PUINT)) version.OrignalVerInstallFileA)(uFlags, szSrcFileName, szDestFileName, szSrcDir, szDestDir, szCurDir, szTmpFile, puTmpFileLen);
+}
+
+DWORD _stdcall FakeVerInstallFileW(
+	DWORD  uFlags,
+	LPCWSTR szSrcFileName,
+	LPCWSTR szDestFileName,
+	LPCWSTR szSrcDir,
+	LPCWSTR szDestDir,
+	LPCWSTR szCurDir,
+	LPWSTR  szTmpFile,
+	PUINT  puTmpFileLen
+) {
+	return ((DWORD(_stdcall*)(DWORD, LPCWSTR, LPCWSTR, LPCWSTR, LPCWSTR, LPCWSTR, LPWSTR, PUINT))version.OrignalVerInstallFileW)(uFlags, szSrcFileName, szDestFileName, szSrcDir, szDestDir, szCurDir, szTmpFile, puTmpFileLen);
+}
+
+DWORD _stdcall FakeVerLanguageNameA(
+	DWORD wLang,
+	LPSTR szLang,
+	DWORD cchLang
+) {
+	return ((DWORD(_stdcall*)(DWORD, LPSTR, DWORD))version.OrignalVerLanguageNameA)(wLang, szLang, cchLang);
+}
+DWORD _stdcall FakeVerLanguageNameW(
+	DWORD wLang,
+	LPWSTR szLang,
+	DWORD cchLang
+) {
+	return ((DWORD(_stdcall*)(DWORD, LPWSTR, DWORD))version.OrignalVerLanguageNameW)(wLang, szLang, cchLang);
+}
+BOOL _stdcall FakeVerQueryValueA(
+	LPCVOID pBlock,
+	LPCSTR  lpSubBlock,
+	LPVOID* lplpBuffer,
+	PUINT   puLen
+) {
+
+	return ((BOOL(_stdcall*)(LPCVOID, LPCSTR, LPVOID*, PUINT))version.OrignalVerQueryValueA)(pBlock, lpSubBlock, lplpBuffer, puLen);
+}
+
+BOOL _stdcall FakeVerQueryValueW(
+	LPCVOID pBlock,
+	LPCWSTR  lpSubBlock,
+	LPVOID* lplpBuffer,
+	PUINT   puLen
+) {
+	return ((BOOL(_stdcall*)(LPCVOID, LPCWSTR, LPVOID*, PUINT))version.OrignalVerQueryValueW)(pBlock, lpSubBlock, lplpBuffer, puLen);
+}
 
 bool done = false;
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved) {

@@ -1,290 +1,405 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1AA91F5A-DDA2-4862-8EA2-686665597C5B}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hook</RootNamespace>
-    <AssemblyName>Hook</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
+      <TargetFrameworks>netstandard2.0</TargetFrameworks>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>D:\Yandere Simulator Modding\YandereSimulator_1 - Copie\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>D:\Yandere Simulator Modding\YandereSimulator_1 - Copie\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <OutputPath>D:\Yandere Simulator Modding\unity 2019\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>    
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="AmplifyMotion">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\AmplifyMotion.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.AccessibilityModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.AccessibilityModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="ArchimedsLab">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\ArchimedsLab.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.AIModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.ARModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.ARModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="com.unity.multiplayer-hlapi.Runtime">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="Mono.Security">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\Mono.Security.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.ClothModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.ClothModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="mscorlib">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\mscorlib.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.ClusterInputModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.ClusterInputModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="Pathfinding.ClipperLib">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\Pathfinding.ClipperLib.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.ClusterRendererModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.ClusterRendererModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="Pathfinding.Poly2Tri">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\Pathfinding.Poly2Tri.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.CrashReportingModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.CrashReportingModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.DirectorModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.DirectorModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.ComponentModel.Composition">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.ComponentModel.Composition.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.GameCenterModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.GameCenterModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.Configuration">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.Configuration.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.GridModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.GridModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.Core">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.Core.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.ImageConversionModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.Data">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.Data.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.IMGUIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.Diagnostics.StackTrace">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.Diagnostics.StackTrace.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.InputModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.InputModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.Drawing">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.Drawing.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.JSONSerializeModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.EnterpriseServices">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.EnterpriseServices.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.Networking, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.Networking.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.Globalization.Extensions">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.Globalization.Extensions.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.ParticlesLegacyModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.ParticlesLegacyModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.IO.Compression">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.IO.Compression.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.IO.Compression.FileSystem">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.IO.Compression.FileSystem.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.PerformanceReportingModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.PerformanceReportingModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.Net.Http">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.Net.Http.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.Numerics">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.Numerics.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.Runtime.Serialization">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.Runtime.Serialization.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.ScreenCaptureModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.ScreenCaptureModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.Runtime.Serialization.Xml">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.Runtime.Serialization.Xml.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.SpatialTracking, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.SpatialTracking.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.ServiceModel.Internals">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.ServiceModel.Internals.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.SpriteMaskModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.SpriteMaskModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.Transactions">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.Transactions.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.StyleSheetsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.StyleSheetsModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.Xml">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.Xml.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.TerrainModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.TerrainModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.Xml.Linq.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.TerrainPhysicsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.TerrainPhysicsModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="System.Xml.XPath.XDocument">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\System.Xml.XPath.XDocument.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\Unity.Analytics.DataPrivacy.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.TilemapModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.TilemapModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.Timeline, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.Timeline.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="Unity.Timeline">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\Unity.Timeline.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.UI.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="UnityEngine">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.UIElementsModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.AccessibilityModule.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.UIModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.AIModule.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.UNETModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.UNETModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.AndroidJNIModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.AndroidJNIModule.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.UnityAnalyticsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.UnityAnalyticsModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.UnityConnectModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.UnityConnectModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.ARModule.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestAudioModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestTextureModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.ClothModule.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestWWWModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.ClusterInputModule.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.VehiclesModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.VehiclesModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.ClusterRendererModule.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.VideoModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.VideoModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.VRModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.VRModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.CrashReportingModule.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.WebModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.WebModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.DirectorModule.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.WindModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Yandere Simulator Modding\YandereSimulator_1\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.WindModule.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.DSPGraphModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.DSPGraphModule.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityScript.Lang, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.GameCenterModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.GridModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.HotReloadModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.HotReloadModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.InputModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.LocalizationModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.LocalizationModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.PerformanceReportingModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ProfilerModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.ProfilerModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.Purchasing.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.ScreenCaptureModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.SharedInternalsModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.SpatialTracking.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.SpriteMaskModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteShapeModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.SpriteShapeModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.StreamingModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.StreamingModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.SubstanceModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.SubstanceModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.SubsystemsModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.SubsystemsModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.TerrainModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.TextCoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.TilemapModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TLSModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.TLSModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.UIElementsModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UmbraModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.UmbraModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.UNETModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.UnityConnectModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityTestProtocolModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.VehiclesModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.VFXModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.VFXModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.VideoModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.VRModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.WindModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.WindModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.XRModule">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\UnityEngine.XRModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="XInputDotNetPure">
+      <HintPath>D:\Yandere Simulator Modding\unity 2019\YandereSimulator_Data\Managed\XInputDotNetPure.dll</HintPath>
+      <Private>false</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="EntryPoint.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

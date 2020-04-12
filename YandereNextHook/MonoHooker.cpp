@@ -39,6 +39,7 @@ void MonoHooker::StartMod() {
 	char buffer[255];
 	GetCurrentDirectoryA(sizeof(buffer), buffer);
 	string realPath = string(buffer) + "\\" + HookLib + ".dll";
+
 	void* monoAssembly = Mono.domain_assembly_open(Mono.MonoDomain, realPath.c_str());
 	if (monoAssembly != nullptr) {
 		void* monoImage = Mono.assembly_get_image(monoAssembly);

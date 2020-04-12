@@ -3,22 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "version", "YandereNextHook\YandereNextHook.vcxproj", "{291896E9-3C0B-41B7-8E54-9728B4185D9D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ModHooker", "YandereNextHook\YandereNextHook.vcxproj", "{291896E9-3C0B-41B7-8E54-9728B4185D9D}"
 EndProject
-Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "YandereSimulator", "D:\Yandere Simulator Modding\YandereSimulator_1 - Copie\YandereSimulator.exe", "{F0AB4856-4943-420B-81A4-D7751DF02C4F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hook", "Hook\Hook.csproj", "{1AA91F5A-DDA2-4862-8EA2-686665597C5B}"
+EndProject
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "YandereSimulator", "D:\Yandere Simulator Modding\unity 2019\YandereSimulator.exe", "{0F403C9F-52BF-4F41-9173-9CEF4ECEA131}"
 	ProjectSection(DebuggerProjectSystem) = preProject
 		PortSupplier = 00000000-0000-0000-0000-000000000000
-		Executable = D:\Yandere Simulator Modding\YandereSimulator_1 - Copie\YandereSimulator.exe
+		Executable = D:\Yandere Simulator Modding\unity 2019\YandereSimulator.exe
 		RemoteMachine = DESKTOP-PCQRR4J
-		StartingDirectory = D:\Yandere Simulator Modding\YandereSimulator_1 - Copie
+		StartingDirectory = D:\Yandere Simulator Modding\unity 2019
 		Environment = Par défaut
 		LaunchingEngine = 00000000-0000-0000-0000-000000000000
 		UseLegacyDebugEngines = No
 		LaunchSQLEngine = No
 		AttachLaunchAction = No
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hook", "Hook\Hook.csproj", "{1AA91F5A-DDA2-4862-8EA2-686665597C5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,12 +40,6 @@ Global
 		{291896E9-3C0B-41B7-8E54-9728B4185D9D}.Release|x64.Build.0 = Release|x64
 		{291896E9-3C0B-41B7-8E54-9728B4185D9D}.Release|x86.ActiveCfg = Release|Win32
 		{291896E9-3C0B-41B7-8E54-9728B4185D9D}.Release|x86.Build.0 = Release|Win32
-		{F0AB4856-4943-420B-81A4-D7751DF02C4F}.Debug|Any CPU.ActiveCfg = Release|x86
-		{F0AB4856-4943-420B-81A4-D7751DF02C4F}.Debug|x64.ActiveCfg = Release|x86
-		{F0AB4856-4943-420B-81A4-D7751DF02C4F}.Debug|x86.ActiveCfg = Release|x86
-		{F0AB4856-4943-420B-81A4-D7751DF02C4F}.Release|Any CPU.ActiveCfg = Release|x86
-		{F0AB4856-4943-420B-81A4-D7751DF02C4F}.Release|x64.ActiveCfg = Release|x86
-		{F0AB4856-4943-420B-81A4-D7751DF02C4F}.Release|x86.ActiveCfg = Release|x86
 		{1AA91F5A-DDA2-4862-8EA2-686665597C5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1AA91F5A-DDA2-4862-8EA2-686665597C5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AA91F5A-DDA2-4862-8EA2-686665597C5B}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -58,6 +52,12 @@ Global
 		{1AA91F5A-DDA2-4862-8EA2-686665597C5B}.Release|x64.Build.0 = Release|Any CPU
 		{1AA91F5A-DDA2-4862-8EA2-686665597C5B}.Release|x86.ActiveCfg = Release|Any CPU
 		{1AA91F5A-DDA2-4862-8EA2-686665597C5B}.Release|x86.Build.0 = Release|Any CPU
+		{0F403C9F-52BF-4F41-9173-9CEF4ECEA131}.Debug|Any CPU.ActiveCfg = Release|x64
+		{0F403C9F-52BF-4F41-9173-9CEF4ECEA131}.Debug|x64.ActiveCfg = Release|x64
+		{0F403C9F-52BF-4F41-9173-9CEF4ECEA131}.Debug|x86.ActiveCfg = Release|x64
+		{0F403C9F-52BF-4F41-9173-9CEF4ECEA131}.Release|Any CPU.ActiveCfg = Release|x64
+		{0F403C9F-52BF-4F41-9173-9CEF4ECEA131}.Release|x64.ActiveCfg = Release|x64
+		{0F403C9F-52BF-4F41-9173-9CEF4ECEA131}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
