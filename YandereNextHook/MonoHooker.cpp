@@ -1,5 +1,5 @@
 #include "MonoHooker.h"
-#include "include/detours.h"
+#include <detours/detours.h>
 #include <ole2.h>
 #include <Windows.h>
 #include <objidlbase.h>
@@ -15,7 +15,7 @@ bool MonoHooker::m_hooked;
 Mono MonoHooker::Mono;
 
 void MonoHooker::Hook() {
-	HookLib = "Hook";
+	HookLib = "ModHook";
 	HookGetProc();
 }
 
@@ -48,7 +48,6 @@ void MonoHooker::StartMod() {
 	}
 	else {
 		MessageManager::DisplayError((realPath + " Doesn't exist or was incorrectly loaded ! The game will start normally !").c_str());
-		ExitProcess(1);
 	}
 }
 

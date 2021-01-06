@@ -3,3 +3,7 @@ Debug
 Release
 .vs
 obj
+*.dll
+*.lib
+*.exe
+packages

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\vcpkg.D.YandereNextHook.vcpkg.1.0.0\build\native\vcpkg.D.YandereNextHook.vcpkg.props" Condition="Exists('..\packages\vcpkg.D.YandereNextHook.vcpkg.1.0.0\build\native\vcpkg.D.YandereNextHook.vcpkg.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -55,6 +56,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
@@ -73,11 +75,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>D:\Yandere Simulator Modding\YandereSimulator_1 - Copie</OutDir>
+    <OutDir>..\..\YandereSimulator</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>D:\Yandere Simulator Modding\YandereSimulator_1 - Copie</OutDir>
+    <OutDir>..\YandereSimulator</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -85,7 +87,15 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>D:\Yandere Simulator Modding\YandereSimulator_1 - Copie</OutDir>
+    <OutDir>..\YandereSimulator</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+    <VcpkgTriplet>x64-windows</VcpkgTriplet>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+    <VcpkgTriplet>x64-windows</VcpkgTriplet>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -112,6 +122,7 @@
       <PreprocessorDefinitions>_DEBUG;YANDERENEXTHOOK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -152,6 +163,7 @@
       <PreprocessorDefinitions>NDEBUG;YANDERENEXTHOOK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -172,20 +184,29 @@
     <ClInclude Include="MonoHooker.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="MessageManager.cpp" />
     <ClCompile Include="Mono.cpp" />
     <ClCompile Include="MonoHooker.cpp" />
-    <ClCompile Include="version.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <MASM Include="version.asm">
+      <FileType>Document</FileType>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+    </MASM>
+    <None Include="packages.config" />
     <None Include="version.def" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Hook\Hook.csproj">
-      <Project>{1aa91f5a-dda2-4862-8ea2-686665597c5b}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+    <Import Project="..\packages\vcpkg.D.YandereNextHook.vcpkg.1.0.0\build\native\vcpkg.D.YandereNextHook.vcpkg.targets" Condition="Exists('..\packages\vcpkg.D.YandereNextHook.vcpkg.1.0.0\build\native\vcpkg.D.YandereNextHook.vcpkg.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\vcpkg.D.YandereNextHook.vcpkg.1.0.0\build\native\vcpkg.D.YandereNextHook.vcpkg.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\vcpkg.D.YandereNextHook.vcpkg.1.0.0\build\native\vcpkg.D.YandereNextHook.vcpkg.props'))" />
+    <Error Condition="!Exists('..\packages\vcpkg.D.YandereNextHook.vcpkg.1.0.0\build\native\vcpkg.D.YandereNextHook.vcpkg.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\vcpkg.D.YandereNextHook.vcpkg.1.0.0\build\native\vcpkg.D.YandereNextHook.vcpkg.targets'))" />
+  </Target>
 </Project>

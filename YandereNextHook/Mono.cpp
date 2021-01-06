@@ -1,7 +1,11 @@
 #include "Mono.h"
-
+#include"MessageManager.h"
 void Mono::PopulateMonoFunctions() {
-	Module = GetModuleHandleA("mono.dll");
+	Module = GetModuleHandleA("mono-2.0-bdwgc.dll");
+	if (Module == NULL) {
+		
+		MessageManager::DisplayError("The mono module was null!");
+	}
 	jit_init_version = (void* (*)(const char*, const char*))GetProcAddress(Module, "mono_jit_init_version");
 	thread_current = (void* (*) ()) GetProcAddress(Module, "mono_thread_current");
 	thread_set_main = (void(*)(void*))GetProcAddress(Module, "mono_thread_set_main");

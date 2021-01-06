@@ -1,11 +1,9 @@
 ﻿using System;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 using System.IO;
-using System.Collections;
 using System.Reflection;
-
-namespace Hook
+using UnityEngine.SceneManagement;
+namespace ModHook
 {
     public class EntryPoint : MonoBehaviour
     {
@@ -15,10 +13,10 @@ namespace Hook
             if (!hooked)
             {
                 hooked = true;
-                SceneManager.sceneLoaded += SceneLoaded;
                 try
                 {
                     Directory.CreateDirectory("Mods");
+                    SceneManager.sceneLoaded += SceneLoaded;
                 }
                 catch
                 {
@@ -31,13 +29,14 @@ namespace Hook
 
         public static void SceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            if (!string.IsNullOrEmpty(scene.name) && !instantiated)
+            if (!instantiated && scene.name != string.Empty)
             {
                 instantiated = true;
                 GameObject go = new GameObject("EntryPoint");
                 EntryPoint point = go.AddComponent<EntryPoint>();
                 DontDestroyOnLoad(go);
             }
+
         }
 
         public void Awake()
@@ -68,3 +67,4 @@ namespace Hook
 
     }
 }
+

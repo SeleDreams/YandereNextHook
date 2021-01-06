@@ -1,7 +1,7 @@
 #ifndef MONOHOOKER
 #define MONOHOOKER
 #include <Windows.h>
-#include "include/detours.h"
+#include <detours/detours.h>
 #include "Mono.h"
 
 class MonoHooker

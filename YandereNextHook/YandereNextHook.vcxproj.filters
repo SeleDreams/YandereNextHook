@@ -35,9 +35,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="version.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="MonoHooker.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -47,8 +44,17 @@
     <ClCompile Include="MessageManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="version.def" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="version.asm">
+      <Filter>Fichiers sources</Filter>
+    </MASM>
   </ItemGroup>
 </Project>
