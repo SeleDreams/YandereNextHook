@@ -7,7 +7,7 @@ it's mainly used to translate the game currently
 
 # How to install ?
 
-go to Release and download the latest version of the modloader.
+Download the latest version here : https://github.com/Corentynn/YandereNextHook/releases/latest
 
 once downloaded, just move ModHook.dll and version.dll at the root folder of the game, where yanderesimulator.exe is.
 
