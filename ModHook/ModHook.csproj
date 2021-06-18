@@ -3,20 +3,35 @@
   <PropertyGroup>
     <TargetFramework>net40</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <Authors>SeleDream, Corentynn</Authors>
+    <Description>a simple modloader for YandereSimulator</Description>
+    <Company>ModHook</Company>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>D:\YandereNextHook\YandereSimulator\</OutputPath>
+    <OutputPath>E:\Jeux\YandereSimulator</OutputPath>
   </PropertyGroup>
+
   <ItemGroup>
     <Reference Include="UnityEngine">
-      <HintPath>..\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.dll</HintPath>
-      <Private>false</Private>
+      <HintPath>..\..\SmallAdditions\SmallAdditions\bin\Debug\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <Private>false</Private>
+      <HintPath>..\..\SmallAdditions\SmallAdditions\bin\Debug\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\SmallAdditions\SmallAdditions\bin\Debug\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>E:\Jeux\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>E:\Jeux\YandereSimulator\YandereSimulator_Data\Managed\UnityEngine.InputModule.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="call $(SolutionDir)clean.bat $(OutDir)" />
+  </Target>
 
 </Project>
