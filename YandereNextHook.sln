@@ -1,23 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30002.166
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ModHooker", "YandereNextHook\YandereNextHook.vcxproj", "{291896E9-3C0B-41B7-8E54-9728B4185D9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hook", "Hook\Hook.csproj", "{1AA91F5A-DDA2-4862-8EA2-686665597C5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hook", "Hook\Hook.csproj", "{1AA91F5A-DDA2-4862-8EA2-686665597C5B}"
 EndProject
-Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "YandereSimulator", "D:\Yandere Simulator Modding\unity 2019\YandereSimulator.exe", "{0F403C9F-52BF-4F41-9173-9CEF4ECEA131}"
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "YandereSimulator", "YandereSimulator\YandereSimulator.exe", "{A6AC3000-E5F3-4943-9CF0-F918B4DBF996}"
 	ProjectSection(DebuggerProjectSystem) = preProject
 		PortSupplier = 00000000-0000-0000-0000-000000000000
-		Executable = D:\Yandere Simulator Modding\unity 2019\YandereSimulator.exe
-		RemoteMachine = DESKTOP-PCQRR4J
-		StartingDirectory = D:\Yandere Simulator Modding\unity 2019
+		Executable = C:\Users\SeleDreams\Desktop\YandereNextHook\YandereSimulator\YandereSimulator.exe
+		RemoteMachine = DESKTOP-9MM0H1E
+		StartingDirectory = C:\Users\SeleDreams\Desktop\YandereNextHook\YandereSimulator
 		Environment = Par défaut
 		LaunchingEngine = 00000000-0000-0000-0000-000000000000
 		UseLegacyDebugEngines = No
 		LaunchSQLEngine = No
 		AttachLaunchAction = No
+		IORedirection = Auto
 	EndProjectSection
 EndProject
 Global
@@ -52,12 +53,12 @@ Global
 		{1AA91F5A-DDA2-4862-8EA2-686665597C5B}.Release|x64.Build.0 = Release|Any CPU
 		{1AA91F5A-DDA2-4862-8EA2-686665597C5B}.Release|x86.ActiveCfg = Release|Any CPU
 		{1AA91F5A-DDA2-4862-8EA2-686665597C5B}.Release|x86.Build.0 = Release|Any CPU
-		{0F403C9F-52BF-4F41-9173-9CEF4ECEA131}.Debug|Any CPU.ActiveCfg = Release|x64
-		{0F403C9F-52BF-4F41-9173-9CEF4ECEA131}.Debug|x64.ActiveCfg = Release|x64
-		{0F403C9F-52BF-4F41-9173-9CEF4ECEA131}.Debug|x86.ActiveCfg = Release|x64
-		{0F403C9F-52BF-4F41-9173-9CEF4ECEA131}.Release|Any CPU.ActiveCfg = Release|x64
-		{0F403C9F-52BF-4F41-9173-9CEF4ECEA131}.Release|x64.ActiveCfg = Release|x64
-		{0F403C9F-52BF-4F41-9173-9CEF4ECEA131}.Release|x86.ActiveCfg = Release|x64
+		{A6AC3000-E5F3-4943-9CF0-F918B4DBF996}.Debug|Any CPU.ActiveCfg = Release|x64
+		{A6AC3000-E5F3-4943-9CF0-F918B4DBF996}.Debug|x64.ActiveCfg = Release|x64
+		{A6AC3000-E5F3-4943-9CF0-F918B4DBF996}.Debug|x86.ActiveCfg = Release|x64
+		{A6AC3000-E5F3-4943-9CF0-F918B4DBF996}.Release|Any CPU.ActiveCfg = Release|x64
+		{A6AC3000-E5F3-4943-9CF0-F918B4DBF996}.Release|x64.ActiveCfg = Release|x64
+		{A6AC3000-E5F3-4943-9CF0-F918B4DBF996}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
